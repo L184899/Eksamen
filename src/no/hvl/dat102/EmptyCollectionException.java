@@ -1,0 +1,8 @@
+package no.hvl.dat102;
+
+public class EmptyCollectionException extends RuntimeException {
+
+    public EmptyCollectionException(String melding) {
+        super(melding);
+    }
+}
