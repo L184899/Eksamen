@@ -27,7 +27,6 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
         siste = new LinearNode<>(maksVerdi);
         foerste.setNeste(siste);
         antall = 0;
-        throw new UnsupportedOperationException("TODO 6a");
     }
 
     // -----------------------
@@ -55,6 +54,13 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
             current = current.getNeste();
         }
         return current.getElement();
+    }
+
+    public T finnMinst(){
+        if (erTom()){
+            throw new EmptyCollectionException("ordnet liste er tom");
+    }
+        return foerste.getNeste().getElement();
     }
 
     // -----------------------
