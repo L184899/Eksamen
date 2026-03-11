@@ -65,14 +65,14 @@ public class KjedetOrdnetListe2<T extends Comparable<T>> {
     // Oppgave 7a: skal fylles ut
     // -----------------------
     private boolean erLikRek(LinearNode<T> p1, LinearNode<T> p2) {
-    if (p1 == null && p2 == null){
-        return true;
-    }
+        if (p1 == null && p2 == null) {
+            return true;
+        }
 
-    if (!p1.getElement().equals(p2.getElement())){
-        return false;
-    }
-    return erLikRek(p1.getNeste(), p2.getNeste());
+        if (!p1.getElement().equals(p2.getElement())) {
+            return false;
+        }
+        return erLikRek(p1.getNeste(), p2.getNeste());
     }
 
     // -----------------------
@@ -83,8 +83,8 @@ public class KjedetOrdnetListe2<T extends Comparable<T>> {
         throw new UnsupportedOperationException("TODO oppgave 7");
     }
 
-    public void snu(){
-        if (erTom() || foerste == siste){
+    public void snu() {
+        if (erTom() || foerste == siste) {
             return;
         }
 
@@ -94,9 +94,9 @@ public class KjedetOrdnetListe2<T extends Comparable<T>> {
 
         siste = foerste;
 
-        while (current != null){
+        while (current != null) {
             neste = current.getNeste();
-            current.setNeste(forrige);
+            current.setNeste(forrige); //p. neste = forrige
             forrige = current;
             current = neste;
         }

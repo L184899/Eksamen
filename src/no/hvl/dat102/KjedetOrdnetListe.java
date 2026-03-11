@@ -9,14 +9,29 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
     // -----------------------
     // Getters / setters (kan antas finnes)
     // -----------------------
-    public int getAntall() { return antall; }
-    public void setAntall(int antall) { this.antall = antall; }
+    public int getAntall() {
+        return antall;
+    }
 
-    public LinearNode<T> getFoerste() { return foerste; }
-    public void setFoerste(LinearNode<T> foerste) { this.foerste = foerste; }
+    public void setAntall(int antall) {
+        this.antall = antall;
+    }
 
-    public LinearNode<T> getSiste() { return siste; }
-    public void setSiste(LinearNode<T> siste) { this.siste = siste; }
+    public LinearNode<T> getFoerste() {
+        return foerste;
+    }
+
+    public void setFoerste(LinearNode<T> foerste) {
+        this.foerste = foerste;
+    }
+
+    public LinearNode<T> getSiste() {
+        return siste;
+    }
+
+    public void setSiste(LinearNode<T> siste) {
+        this.siste = siste;
+    }
 
     // -----------------------
     // Oppgave 6a: Konstruktør med minVerdi og maksVerdi
@@ -46,20 +61,20 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
     // Oppgave 6b: finnMaks()
     // -----------------------
     public T finnMaks() {
-        if (erTom()){
-        throw new EmptyCollectionException("ordnet liste er tom");
-    }
-    LinearNode<T> current = foerste;
-        while (current.getNeste() != siste){
+        if (erTom()) {
+            throw new EmptyCollectionException("ordnet liste er tom");
+        }
+        LinearNode<T> current = foerste;
+        while (current.getNeste() != siste) {
             current = current.getNeste();
         }
         return current.getElement();
     }
 
-    public T finnMinst(){
-        if (erTom()){
+    public T finnMinst() {
+        if (erTom()) {
             throw new EmptyCollectionException("ordnet liste er tom");
-    }
+        }
         return foerste.getNeste().getElement();
     }
 
@@ -75,12 +90,12 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
         LinearNode<T> forrige = foerste;
         LinearNode<T> current = foerste.getNeste();
 
-        while (current != siste && current.getElement().compareTo(el) < 0){
+        while (current != siste && current.getElement().compareTo(el) < 0) {
             forrige = current;
             current = current.getNeste();
         }
 
-        while (current != siste && current.getElement().compareTo(el) == 0){
+        while (current != siste && current.getElement().compareTo(el) == 0) {
             forrige.setNeste(current.getNeste());
             current = forrige.getNeste();
 
