@@ -1,7 +1,6 @@
 package no.hvl.dat102_2;
 
 import no.hvl.dat102.EmptyCollectionException;
-import no.hvl.dat102.LinearNode;
 
 public class KjedetOrdnetListe3<T extends Comparable<T>> {
 
@@ -133,7 +132,8 @@ public class KjedetOrdnetListe3<T extends Comparable<T>> {
         } else {
             LinearNode2<T> current = foerste;
 
-            while (current.getNeste() != null && current.getElement().compareTo(element) < 0) {
+            while (current.getNeste() != null &&
+                    current.getNeste().getElement().compareTo(element) < 0) {
                 current = current.getNeste();
             }
 
