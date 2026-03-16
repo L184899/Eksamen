@@ -26,6 +26,11 @@ public class KjedetBSTre<T extends Comparable<T>>
         rot = leggTilRek(rot, element);
     }
 
+    @Override
+    public T fjern(T element) {
+        return null;
+    }
+
     private BinaerTreNode<T> leggTilRek(BinaerTreNode<T> node, T element) {
 
         if (node == null) {
@@ -61,15 +66,25 @@ public class KjedetBSTre<T extends Comparable<T>>
     @Override
     public T finnMinste() {
         if (erTom()) {
-            throw new EmptyCollectionException("Treet er tomt");
+            throw new EmptyCollectionException("Ingen element funnet");
         }
-
         BinaerTreNode<T> current = rot;
 
         while (current.getVenstre() != null) {
             current = current.getVenstre();
         }
+        return current.getElement();
+    }
 
+    public T finnStorste() {
+        if (erTom()) {
+            throw new EmptyCollectionException("Ingen element funnet");
+        }
+        BinaerTreNode<T> current = rot;
+
+        while (current.getHoyre() != null) {
+            current = current.getHoyre();
+        }
         return current.getElement();
     }
 
@@ -90,9 +105,20 @@ public class KjedetBSTre<T extends Comparable<T>>
                 antallBladRek(node.getHoyre());
     }
 
-    @Override
-    public T fjern(T element) {
-        // Ofte ikke nødvendig i oppgaven
-        throw new UnsupportedOperationException("Ikke implementert");
+    public int antallBlad2() {
+        return antallBladRek2(rot);
     }
+
+    private int antallBladRek2(BinaerTreNode<T> node) {
+
+        if (node == null) return 0;
+
+        if (node.getVenstre() == null && node.getHoyre() == null) {
+            return 1;
+        }
+
+        return antallBladRek2(node.getVenstre()) + antallBladRek2(node.getHoyre());
+    }
+
+
 }
